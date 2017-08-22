@@ -1,0 +1,3 @@
+rootProject.name = 'ChapApp'
+
+include ':app'
