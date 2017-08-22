@@ -6,15 +6,22 @@ import {
 } from 'react-native';
 
 class Chat extends React.Component{
+
   render(){
+
     return(
       <View>
         <Text>
-          Hello Chat
+          Hello {this.state.name}
         </Text>
       </View>
     );
   }
 }
+
+
+Chat.propTypes = {
+  name: React.PropTypes.string,
+};
 
 export default Chat;
