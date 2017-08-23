@@ -1,49 +1,42 @@
-import React from "react";
-
+import React from 'react';
 import {
-  View,
-  Text,
   StyleSheet,
+  Text,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
-import {
-  Actions
-} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
-class Home extends React.Component{
-
-
-    state={
-      name: '',
-    }
-
-
-  render(){
-    return(
-      <View>
-        <Text style={styles.title}>
-          Enter your name:
+export default class Home extends React.Component {
+  state = {
+    name: '',
+  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={[styles.label, {marginTop: 40}]}>
+          Enter your name :
         </Text>
         <TextInput
-              style={styles.nameInput}
-              placeholder="John Snow"
-              onChangeText={(text) =>{
-                this.setState({
-                  name:text,
-                });
-              }}
-              value={this.state.name}
+          placeholder='John Smith'
+          style={styles.textInput}
+          onChangeText={(text) => {
+            this.setState({
+              name: text,
+            });
+          }}
+          value={this.state.name}
         />
         <TouchableOpacity
           onPress={() => {
             Actions.chat({
-              name : this.state.name,
+              name: this.state.name,
             });
           }}
-          >
-          <Text style={styles.button}>
+        >
+          <Text style={styles.label}>
             Next
           </Text>
         </TouchableOpacity>
@@ -52,28 +45,16 @@ class Home extends React.Component{
   }
 }
 
-var styles = StyleSheet.create({
-  title:{
-    "fontSize":20,
-    "marginTop":20,
-    "textAlign":"center",
-    "fontWeight":"600",
-    "color":'darkgrey',
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
   },
-  nameInput:{
-    "height":40,
-    "borderWidth":2,
-    "borderColor":"black",
-    "margin":20,
-    "paddingLeft": 10,
-    "paddingRight": 10,
+  label: {
+    fontSize: 20,
+    marginLeft: 15,
   },
-  button:{
-    "textAlign":"center",
-    "height":60,
-    "fontSize":15,
-    "fontWeight":"400"
-  }
+  textInput: {
+    height: 40,
+    marginLeft: 15,
+  },
 });
-
-export default Home;

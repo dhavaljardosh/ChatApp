@@ -1,5 +1,5 @@
 import React from "react";
-
+import GiftedChat from "react-native-gifted-chat";
 import {
   View,
   Text
@@ -7,14 +7,22 @@ import {
 
 class Chat extends React.Component{
 
+  state={
+    messages:[]
+  };
+
   render(){
 
     return(
-      <View>
-        <Text>
-          Hello {this.state.name}
-        </Text>
-      </View>
+      <GiftedChat
+        messages={this.state.messages}
+        onSend={(messages) =>
+          //
+        }
+        user={{
+          _id: 1,
+        }}
+      />
     );
   }
 }
